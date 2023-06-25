@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class pipe_object : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class pipe_object : MonoBehaviour
     {
         this.gameObject.tag = "wall-dmg";
         this.transform.position = new Vector2(2.5f ,size);
-        this.transform.localScale = new Vector2(5,7);
+        this.transform.localScale = new Vector2(0.13077f, 0.18f);
 
         boxCollider = this.gameObject.AddComponent<BoxCollider2D>();
         boxCollider.isTrigger = true;
@@ -30,19 +32,20 @@ public class pipe_object : MonoBehaviour
 
         if (direction == "up")
         {
-            spriteRenderer.sprite = Resources.Load<Sprite>("pipe_top");
+            spriteRenderer.sprite = Resources.Load<Sprite>("pipe_clipart");
             spriteRenderer.size = new Vector2(5f, 7f);
-            boxCollider.size = new Vector2(0.07f, 0.1444f);
-            boxCollider.offset = new Vector2(0, 0.0082f);
+            spriteRenderer.flipY = true;
+            boxCollider.size = new Vector2(2.960218f, 5.836285f);
+            boxCollider.offset = new Vector2(-0.03080362f, -0.01540184f);
             spriteRenderer.sortingOrder = 1;
         }
         else if (direction == "down")
         {
-            spriteRenderer.sprite = Resources.Load<Sprite>("pipe_top");
-            spriteRenderer.flipY = true;
+            spriteRenderer.sprite = Resources.Load<Sprite>("pipe_clipart");
+            spriteRenderer.flipY = false;
             spriteRenderer.sortingOrder = 1;
-            boxCollider.size = new Vector2(0.07f, 0.14673f);
-            boxCollider.offset = new Vector2(0, -0.007721379f);
+            boxCollider.size = new Vector2(2.960218f, 5.836285f);
+            boxCollider.offset = new Vector2(-0.03080362f, -0.01540184f);
         }
         bird = GameObject.Find("bird").gameObject.GetComponent<controles>();
     }

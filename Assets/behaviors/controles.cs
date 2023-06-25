@@ -25,7 +25,7 @@ public class controles : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             character.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("bird2");
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("bird2-2");
 
             Invoke("UpdateSprite", 0.3f);
 
@@ -61,11 +61,12 @@ public class controles : MonoBehaviour
     private void FixedUpdate()
     {
         character.AddForce(Vector2.down * gravity, ForceMode2D.Force);
+        character.transform.rotation = Quaternion.Euler(0, 0, character.velocity.y * 4);
     }
 
     void UpdateSprite()
     {
-        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("bird1");
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("bird1-2");
     }
     public void Reset()
     {

@@ -29,8 +29,8 @@ public class pipe_spawner : MonoBehaviour
     {
         Debug.Log("spawning");
 
-        // os canos vão de -1.23 a 1,23
-        float seed = UnityEngine.Random.Range(0.43f, 1.23f);
+        // os canos vão de -0.695 a -1.214
+        float seed = UnityEngine.Random.Range(0.695f, 1.214f);
         GameObject pipe1 = new GameObject();
         pipe1.AddComponent<pipe_object>();
         pipe_object pipeObj1 = pipe1.GetComponent<pipe_object>();
@@ -42,7 +42,7 @@ public class pipe_spawner : MonoBehaviour
         pipe2.AddComponent<pipe_object>();
         pipe_object pipeObj2 = pipe2.GetComponent<pipe_object>();
         pipeObj2.direction = "down";
-        pipeObj2.size = -1.66f + seed;
+        pipeObj2.size = -2f + seed;
         pipe2.name = "pipe";
 
         GameObject scorePoint = new GameObject();
